@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 2200" width="1200" height="2200">
+  <defs>
+    <!-- 渐变色定义 -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="mainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="subGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="gaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="lsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="endGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="2200" fill="url(#bgGrad)" rx="20"/>
+  
+  <!-- 标题 -->
+  <text x="600" y="60" text-anchor="middle" font-family="Microsoft YaHei, SimHei, Arial" font-size="32" font-weight="bold" fill="#1e293b">Hybrid-ILS 混合迭代局部搜索算法流程图</text>
+  <text x="600" y="95" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="18" fill="#64748b">城市绿色物流配送调度优化</text>
+  
+  <!-- ============ 阶段一：数据预处理 ============ -->
+  <g transform="translate(40, 130)" filter="url(#shadow)">
+    <!-- 阶段标题 -->
+    <rect x="0" y="0" width="1120" height="45" rx="10" fill="url(#mainGrad)"/>
+    <text x="560" y="30" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="20" font-weight="bold" fill="white">阶段一：数据预处理与特征工程</text>
+    
+    <!-- 预处理内容 -->
+    <rect x="0" y="55" width="350" height="180" rx="10" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="0" y="55" width="350" height="35" rx="10" fill="#dbeafe"/>
+    <rect x="0" y="75" width="350" height="15" fill="#dbeafe"/>
+    <text x="175" y="78" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="15" font-weight="bold" fill="#1d4ed8">订单聚合</text>
+    <text x="175" y="108" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" fill="#475569">2169个订单 → 98个客户点</text>
+    <text x="175" y="135" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" fill="#475569">计算总重量、总容积</text>
+    <text x="175" y="162" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" fill="#475569">时间窗格式转换</text>
+    <text x="175" y="189" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" fill="#475569">大客户识别 (46个)</text>
+    <text x="175" y="216" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#f59e0b">需求>容量70%</text>
+    
+    <rect x="385" y="55" width="350" height="180" rx="10" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="385" y="55" width="350" height="35" rx="10" fill="#dbeafe"/>
+    <rect x="385" y="75" width="350" height="15" fill="#dbeafe"/>
+    <text x="560" y="78" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="15" font-weight="bold" fill="#1d4ed8">距离矩阵构建</text>
+    <text x="560" y="108" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" fill="#475569">计算客户点间欧氏距离</text>
+    <text x="560" y="135" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" fill="#475569">包括配送中心 (99×99)</text>
+    <text x="560" y="162" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" fill="#475569">考虑坐标(20,20)为配送中心</text>
+    <text x="560" y="189" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" fill="#475569">绿色配送区客户识别</text>
+    <text x="560" y="216" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#10b981">圆心(0,0), 半径10km</text>
+    
+    <rect x="770" y="55" width="350" height="180" rx="10" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="770" y="55" width="350" height="35" rx="10" fill="#dbeafe"/>
+    <rect x="770" y="75" width="350" height="15" fill="#dbeafe"/>
+    <text x="945" y="78" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="15" font-weight="bold" fill="#1d4ed8">车辆类型配置</text>
+    <text x="945" y="108" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" fill="#475569">5种车型参数加载</text>
+    <text x="945" y="135" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" fill="#475569">燃油车: 车型1-3 (160辆)</text>
+    <text x="945" y="162" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" fill="#475569">新能源车: 车型4-5 (25辆)</text>
+    <text x="945" y="189" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" fill="#475569">成本参数初始化</text>
+    <text x="945" y="216" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#64748b">启动/能耗/碳排放</text>
+  </g>
+  
+  <!-- 连接箭头1 -->
+  <path d="M 600 450 L 600 480" stroke="#3b82f6" stroke-width="3" fill="none" marker-end="url(#arrowBlue)"/>
+  <polygon points="600,485 595,475 605,475" fill="#3b82f6"/>
+  
+  <!-- ============ 阶段二：时变评估器 ============ -->
+  <g transform="translate(40, 500)" filter="url(#shadow)">
+    <rect x="0" y="0" width="1120" height="45" rx="10" fill="url(#subGrad)"/>
+    <text x="560" y="30" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="20" font-weight="bold" fill="white">阶段二：时变评估器建模</text>
+    
+    <rect x="0" y="55" width="280" height="160" rx="10" fill="white" stroke="#10b981" stroke-width="2"/>
+    <text x="140" y="85" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="14" font-weight="bold" fill="#059669">速度时变模型</text>
+    <text x="140" y="115" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">三时段速度期望值</text>
+    <text x="140" y="140" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">顺畅: v₁ | 一般: v₂ | 拥堵: v₃</text>
+    <text x="140" y="165" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#94a3b8">根据出发时间分段计算</text>
+    <text x="140" y="190" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#94a3b8">行驶时间 = Σ(距离/时段速度)</text>
+    
+    <rect x="310" y="55" width="280" height="160" rx="10" fill="white" stroke="#10b981" stroke-width="2"/>
+    <text x="450" y="85" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="14" font-weight="bold" fill="#059669">U型能耗函数</text>
+    <text x="450" y="115" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">百公里油耗/电耗</text>
+    <text x="450" y="140" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">与车速呈U型关系</text>
+    <text x="450" y="165" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#94a3b8">燃油车: 满载比空载高40%</text>
+    <text x="450" y="190" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#94a3b8">新能源车: 满载比空载高35%</text>
+    
+    <rect x="620" y="55" width="280" height="160" rx="10" fill="white" stroke="#10b981" stroke-width="2"/>
+    <text x="760" y="85" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="14" font-weight="bold" fill="#059669">成本计算模块</text>
+    <text x="760" y="115" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">运输成本 = 燃油费 + 电费</text>
+    <text x="760" y="140" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">碳排放成本 = 排放量×0.65</text>
+    <text x="760" y="165" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#94a3b8">时间窗惩罚成本</text>
+    <text x="760" y="190" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#94a3b8">早到: 20元/h 晚到: 50元/h</text>
+    
+    <rect x="930" y="55" width="190" height="160" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+    <text x="1025" y="85" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="14" font-weight="bold" fill="#059669">评估输出</text>
+    <text x="1025" y="120" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">总行驶时间</text>
+    <text x="1025" y="145" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">总成本</text>
+    <text x="1025" y="170" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">总碳排放</text>
+    <text x="1025" y="195" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">各客户到达时间</text>
+  </g>
+  
+  <!-- 连接箭头2 -->
+  <path d="M 600 745 L 600 775" stroke="#10b981" stroke-width="3" fill="none"/>
+  <polygon points="600,780 595,770 605,770" fill="#10b981"/>
+  
+  <!-- ============ 阶段三：Hybrid-ILS算法主循环 ============ -->
+  <g transform="translate(40, 790)" filter="url(#shadow)">
+    <rect x="0" y="0" width="1120" height="45" rx="10" fill="url(#gaGrad)"/>
+    <text x="560" y="30" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="20" font-weight="bold" fill="white">阶段三：Hybrid-ILS 算法主循环</text>
+    
+    <!-- 迭代开始 -->
+    <rect x="430" y="60" width="260" height="50" rx="25" fill="#8b5cf6" stroke="#6d28d9" stroke-width="2"/>
+    <text x="560" y="92" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="18" font-weight="bold" fill="white">迭代开始 (当前: 第N代)</text>
+    
+    <!-- 连接线 -->
+    <path d="M 560 110 L 560 130" stroke="#8b5cf6" stroke-width="3"/>
+    <polygon points="560,135 555,125 565,125" fill="#8b5cf6"/>
+    
+    <!-- 初始化种群 -->
+    <rect x="265" y="145" width="590" height="100" rx="10" fill="white" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="265" y="145" width="590" height="35" rx="10" fill="#ede9fe"/>
+    <rect x="265" y="165" width="590" height="15" fill="#ede9fe"/>
+    <text x="560" y="170" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="15" font-weight="bold" fill="#6d28d9">初始化种群 (N=120个个体)</text>
+    <text x="400" y="200" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">• 随机生成初始解</text>
+    <text x="400" y="220" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">• 贪婪构造启发式</text>
+    <text x="650" y="200" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">• 大客户需求拆分编码</text>
+    <text x="650" y="220" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">• 车辆路径整数编码</text>
+    
+    <!-- 连接线 -->
+    <path d="M 560 245 L 560 265" stroke="#8b5cf6" stroke-width="3"/>
+    <polygon points="560,270 555,260 565,260" fill="#8b5cf6"/>
+    
+    <!-- 适应度评估 -->
+    <rect x="265" y="280" width="590" height="80" rx="10" fill="white" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="560" y="305" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="14" font-weight="bold" fill="#6d28d9">适应度评估 (调用时变评估器)</text>
+    <text x="400" y="330" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">Fitness = 总成本</text>
+    <text x="650" y="330" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">约束惩罚项加权</text>
+    
+    <!-- 连接线 -->
+    <path d="M 560 360 L 560 380" stroke="#8b5cf6" stroke-width="3"/>
+    <polygon points="560,385 555,375 565,375" fill="#8b5cf6"/>
+    
+    <!-- 遗传算子区块 -->
+    <rect x="100" y="395" width="920" height="130" rx="15" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="560" y="420" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="16" font-weight="bold" fill="#6d28d9">遗传算法算子 (GA Operators)</text>
+    
+    <!-- 选择 -->
+    <rect x="130" y="435" width="180" height="70" rx="8" fill="white" stroke="#a78bfa" stroke-width="2"/>
+    <text x="220" y="460" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" font-weight="bold" fill="#7c3aed">选择 (Selection)</text>
+    <text x="220" y="485" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">锦标赛选择</text>
+    <text x="220" y="500" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">保留精英个体</text>
+    
+    <!-- 交叉 -->
+    <rect x="350" y="435" width="180" height="70" rx="8" fill="white" stroke="#a78bfa" stroke-width="2"/>
+    <text x="440" y="460" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" font-weight="bold" fill="#7c3aed">交叉 (Crossover)</text>
+    <text x="440" y="485" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">OX顺序交叉</text>
+    <text x="440" y="500" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">概率 Pc = 0.85</text>
+    
+    <!-- 变异 -->
+    <rect x="570" y="435" width="180" height="70" rx="8" fill="white" stroke="#a78bfa" stroke-width="2"/>
+    <text x="660" y="460" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" font-weight="bold" fill="#7c3aed">变异 (Mutation)</text>
+    <text x="660" y="485" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">交换/逆转变异</text>
+    <text x="660" y="500" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">概率 Pm = 0.15</text>
+    
+    <!-- 精英保留 -->
+    <rect x="790" y="435" width="200" height="70" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="890" y="460" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" font-weight="bold" fill="#d97706">精英保留策略</text>
+    <text x="890" y="485" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">Top-K最优个体</text>
+    <text x="890" y="500" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">直接进入下一代</text>
+    
+    <!-- 连接线 GA -> LS -->
+    <path d="M 560 525 L 560 545" stroke="#8b5cf6" stroke-width="3"/>
+    <polygon points="560,550 555,540 565,540" fill="#8b5cf6"/>
+    
+    <!-- 局部搜索区块 -->
+    <rect x="100" y="560" width="920" height="130" rx="15" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+    <text x="560" y="585" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="16" font-weight="bold" fill="#d97706">局部搜索算子 (Local Search) — 深度优化</text>
+    
+    <!-- 2-opt -->
+    <rect x="130" y="605" width="200" height="70" rx="8" fill="white" stroke="#fbbf24" stroke-width="2"/>
+    <text x="230" y="630" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" font-weight="bold" fill="#b45309">2-opt 邻域</text>
+    <text x="230" y="655" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">翻转路径片段</text>
+    <text x="230" y="670" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">消除交叉路径</text>
+    
+    <!-- Relocation -->
+    <rect x="370" y="605" width="200" height="70" rx="8" fill="white" stroke="#fbbf24" stroke-width="2"/>
+    <text x="470" y="630" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" font-weight="bold" fill="#b45309">Relocation 算子</text>
+    <text x="470" y="655" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">移动客户到新位置</text>
+    <text x="470" y="670" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">平衡车辆载重率</text>
+    
+    <!-- Exchange -->
+    <rect x="610" y="605" width="200" height="70" rx="8" fill="white" stroke="#fbbf24" stroke-width="2"/>
+    <text x="710" y="630" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="13" font-weight="bold" fill="#b45309">Exchange 算子</text>
+    <text x="710" y="655" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">交换两客户位置</text>
+    <text x="710" y="670" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#64748b">跨车辆优化</text>
+    
+    <!-- 强扰动 -->
+    <rect x="850" y="605" width="140" height="70" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="920" y="630" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" font-weight="bold" fill="#b45309">强扰动</text>
+    <text x="920" y="655" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="10" fill="#64748b">路径合并/拆分</text>
+    <text x="920" y="670" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="10" fill="#64748b">跳出局部最优</text>
+    
+    <!-- 连接线 LS -> SA -->
+    <path d="M 560 690 L 560 710" stroke="#f59e0b" stroke-width="3"/>
+    <polygon points="560,715 555,705 565,705" fill="#f59e0b"/>
+    
+    <!-- 模拟退火接受准则 -->
+    <rect x="265" y="725" width="590" height="75" rx="10" fill="white" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="265" y="725" width="590" height="30" rx="10" fill="#fef3c7"/>
+    <rect x="265" y="745" width="590" height="10" fill="#fef3c7"/>
+    <text x="560" y="745" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="14" font-weight="bold" fill="#b45309">模拟退火接受准则 (Simulated Annealing)</text>
+    <text x="400" y="775" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">P = exp(ΔE / T)</text>
+    <text x="650" y="775" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">温度递减: T = T₀ × αⁿ</text>
+    
+    <!-- 连接线 SA -> 判断 -->
+    <path d="M 560 800 L 560 820" stroke="#f59e0b" stroke-width="3"/>
+    <polygon points="560,825 555,815 565,815" fill="#f59e0b"/>
+    
+    <!-- 终止判断 -->
+    <rect x="300" y="835" width="520" height="60" rx="30" fill="white" stroke="#64748b" stroke-width="3"/>
+    <text x="560" y="865" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="16" font-weight="bold" fill="#475569">终止判断: N < N_max (600代) 或 早停条件满足?</text>
+    
+    <!-- 是 -> 输出 -->
+    <path d="M 820 865 L 920 865 L 920 960" stroke="#10b981" stroke-width="3" fill="none"/>
+    <polygon points="920,965 915,955 925,955" fill="#10b981"/>
+    <text x="870" y="900" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="14" font-weight="bold" fill="#10b981">是</text>
+    
+    <!-- 否 -> 返回迭代 -->
+    <path d="M 300 865 L 200 865 L 200 155" stroke="#8b5cf6" stroke-width="3" fill="none"/>
+    <polygon points="200,150 195,160 205,160" fill="#8b5cf6"/>
+    <text x="100" y="510" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="14" font-weight="bold" fill="#8b5cf6">否 → 返回</text>
+  </g>
+  
+  <!-- 连接箭头3 -->
+  <path d="M 600 1830 L 600 1860" stroke="#10b981" stroke-width="3"/>
+  <polygon points="600,1865 595,1855 605,1855" fill="#10b981"/>
+  
+  <!-- ============ 阶段四：输出结果 ============ -->
+  <g transform="translate(40, 1870)" filter="url(#shadow)">
+    <rect x="0" y="0" width="1120" height="45" rx="10" fill="url(#endGrad)"/>
+    <text x="560" y="30" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="20" font-weight="bold" fill="white">阶段四：输出最优调度方案</text>
+    
+    <!-- 结果输出框 -->
+    <rect x="0" y="55" width="280" height="150" rx="10" fill="white" stroke="#ef4444" stroke-width="2"/>
+    <text x="140" y="85" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="14" font-weight="bold" fill="#dc2626">车辆调度方案</text>
+    <text x="140" y="115" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">每辆车服务的客户列表</text>
+    <text x="140" y="140" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">车辆类型分配</text>
+    <text x="140" y="165" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">车辆使用数量</text>
+    <text x="140" y="190" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#94a3b8">燃油车 vs 新能源车比例</text>
+    
+    <rect x="310" y="55" width="280" height="150" rx="10" fill="white" stroke="#ef4444" stroke-width="2"/>
+    <text x="450" y="85" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="14" font-weight="bold" fill="#dc2626">行驶路径明细</text>
+    <text x="450" y="115" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">各车辆完整路径序列</text>
+    <text x="450" y="140" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">配送中心 → 客户 → ...</text>
+    <text x="450" y="165" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">→ 返回配送中心</text>
+    <text x="450" y="190" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#94a3b8">路径总里程统计</text>
+    
+    <rect x="620" y="55" width="280" height="150" rx="10" fill="white" stroke="#ef4444" stroke-width="2"/>
+    <text x="760" y="85" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="14" font-weight="bold" fill="#dc2626">到达时间表</text>
+    <text x="760" y="115" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">各客户点预计到达时间</text>
+    <text x="760" y="140" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">时间窗满足情况</text>
+    <text x="760" y="165" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">等待时间计算</text>
+    <text x="760" y="190" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#94a3b8">晚到惩罚统计</text>
+    
+    <rect x="930" y="55" width="190" height="150" rx="10" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+    <text x="1025" y="85" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="14" font-weight="bold" fill="#dc2626">成本报告</text>
+    <text x="1025" y="115" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#475569">启动成本</text>
+    <text x="1025" y="135" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#475569">运输成本</text>
+    <text x="1025" y="155" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#475569">碳排放成本</text>
+    <text x="1025" y="175" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="11" fill="#475569">惩罚成本</text>
+    <text x="1025" y="195" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="12" font-weight="bold" fill="#dc2626">总成本</text>
+  </g>
+  
+  <!-- 图例 -->
+  <g transform="translate(40, 2100)">
+    <rect x="0" y="0" width="1120" height="70" rx="10" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="560" y="20" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="14" font-weight="bold" fill="#475569">图例说明</text>
+    
+    <rect x="50" y="35" width="30" height="20" rx="3" fill="url(#mainGrad)"/>
+    <text x="90" y="50" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">数据预处理</text>
+    
+    <rect x="200" y="35" width="30" height="20" rx="3" fill="url(#subGrad)"/>
+    <text x="240" y="50" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">时变评估器</text>
+    
+    <rect x="370" y="35" width="30" height="20" rx="3" fill="url(#gaGrad)"/>
+    <text x="410" y="50" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">遗传算法</text>
+    
+    <rect x="520" y="35" width="30" height="20" rx="3" fill="url(#lsGrad)"/>
+    <text x="560" y="50" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">局部搜索</text>
+    
+    <rect x="670" y="35" width="30" height="20" rx="3" fill="url(#endGrad)"/>
+    <text x="710" y="50" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">结果输出</text>
+    
+    <line x1="800" y1="45" x2="840" y2="45" stroke="#8b5cf6" stroke-width="3"/>
+    <polygon points="840,45 835,40 835,50" fill="#8b5cf6"/>
+    <text x="850" y="50" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">迭代返回</text>
+    
+    <line x1="980" y1="45" x2="1020" y2="45" stroke="#10b981" stroke-width="3"/>
+    <polygon points="1020,45 1015,40 1015,50" fill="#10b981"/>
+    <text x="1030" y="50" font-family="Microsoft YaHei, Arial" font-size="12" fill="#475569">流程推进</text>
+  </g>
+</svg>
