@@ -58,3 +58,14 @@ huazhong-cup-vrp/
 - **竞赛**：华中杯数学建模竞赛（2026）
 - **角色**：算法设计与全部代码实现
 - **产出**：278 页完整论文
+
+## 相关项目
+
+| 项目 | 描述 |
+|------|------|
+| [PCCP](https://github.com/LY-muyanshiqi/PCCP) | Inception-ResNet-LSTM · R²=0.986 |
+| [坝道微医](https://github.com/LY-muyanshiqi/badao-weiyi) | 水利部认定 · 92%诊断精度 |
+| [统计建模-玉米](https://github.com/LY-muyanshiqi/statistical-modeling-corn) | LSTM+CNN+XGBoost · R²=0.82 |
+| [蓄能智调](https://github.com/LY-muyanshiqi/pumped-storage-carbon) | LSTM来水预测 · 碳减排优化 |
+| [智慧水利](https://github.com/LY-muyanshiqi/smart-water-demo) | LSTM洪水预测 · Flask+Streamlit |
+| [个人主页](https://github.com/LY-muyanshiqi/LY-muyanshiqi) | GitHub Profile · 项目总览 |

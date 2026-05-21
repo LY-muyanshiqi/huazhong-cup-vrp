@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.xlsx
+*.xls
+*.doc
+*.docx
+*.pdf
+.DS_Store
+*.zip
+*.tar.gz
+*.rar
