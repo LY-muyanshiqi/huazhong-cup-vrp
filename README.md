@@ -1,5 +1,6 @@
 # 华中杯数学建模 · 城市绿色物流配送调度
 
+[![CI](https://github.com/LY-muyanshiqi/huazhong-cup-vrp/actions/workflows/ci.yml/badge.svg)](https://github.com/LY-muyanshiqi/huazhong-cup-vrp/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
